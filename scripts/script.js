@@ -22,7 +22,7 @@ function populate() {
     container.appendChild(product_element);
 
   }
-  ProductItem.item_count = Number(localStorage.getItem('cart_count'));
+  ProductItem.item_count = Number(localStorage.getItem(COUNT_ID));
   ProductItem.cart_count.innerHTML = ProductItem.item_count;
 };
 
@@ -50,11 +50,9 @@ window.addEventListener('DOMContentLoaded', () => {
         ProductItem.cart_table.push(false);
         localStorage.setItem(i.toString(), JSON.stringify(data[i]));
       }
-      if (localStorage.getItem('existance') != null) {
-        console.log(localStorage.getItem('existance'));
-        ProductItem.cart_table = string_to_bool_array(localStorage.getItem('existance'));
+      if (localStorage.getItem(OCC_GRID_ID) != null) {
+        ProductItem.cart_table = string_to_bool_array(localStorage.getItem(OCC_GRID_ID));
       }
-      console.log(ProductItem.cart_table);
       populate();
     });
 
